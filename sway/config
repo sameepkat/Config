@@ -188,7 +188,7 @@ input "type:touchpad" {
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    bindsym $mod+minus scratchpad show 
 #
 # Resizing containers:
 #
@@ -240,8 +240,11 @@ bindsym XF86MonBrightnessDown exec "sudo brightnessctl set 5%-"
 
 #Lock screens
 exec swayidle -w \
-    timeout 300 swaylock \
-    timeout 900 systemctl suspend
+    exec swayidle -w timeout 300 'swaylock -C$HOME/.config/swaylock/config.idle' timeout 420 'systemctl suspend' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock'
+    exec swayidle lock 'swaymsg "output * dpms on"&& swaylock' unlock 'kill -s 1 $(pgrep swaylock)'
 
-#touchpad sensitivity
 
+
+# Screenshots
+bindsym Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
+bindsym Shift+Print exec wl-paste > ~/Pictures/Screenshots/screenshot_$(date+'%Y-%m-%d_%H-%M-%s').png

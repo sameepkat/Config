@@ -13,6 +13,12 @@ alias 3rd="cd ~/Documents/Obsidian\ Vault/3rd\ semester/"
 alias clones="cd ~/Documents/Code/clones/"
 alias r='ranger .'
 #startup
+#
+#
+#
+#
+#Exports
+export MOZ_ENABLE_WAYLAND=1
 
 
 

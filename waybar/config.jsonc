@@ -74,7 +74,7 @@
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
-        "interval": 5,
+        "interval": 10,
         "consume-icons": {
             "on": " "
         },

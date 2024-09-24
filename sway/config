@@ -27,7 +27,7 @@ set $fileM ranger
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/Wallpapers/Wallpaper.jpg fill
 #
 # Example configuration:
 #
@@ -39,10 +39,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+ exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -239,12 +239,23 @@ bindsym XF86MonBrightnessUp exec "sudo brightnessctl set +5%"
 bindsym XF86MonBrightnessDown exec "sudo brightnessctl set 5%-"
 
 #Lock screens
-exec swayidle -w \
-    exec swayidle -w timeout 300 'swaylock -C$HOME/.config/swaylock/config.idle' timeout 420 'systemctl suspend' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock'
-    exec swayidle lock 'swaymsg "output * dpms on"&& swaylock' unlock 'kill -s 1 $(pgrep swaylock)'
+#exec swayidle -w \
+#   timeout 300 'swaylock -C$HOME/.config/swaylock/config.idle' timeout 420 'systemctl suspend' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock'
+
+bindsym $mod+Ctrl+l exec systemctl suspend
 
 
 
 # Screenshots
 bindsym Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 bindsym Shift+Print exec wl-paste > ~/Pictures/Screenshots/screenshot_$(date+'%Y-%m-%d_%H-%M-%s').png
+
+
+#For Intel/AMD GPus (Mesa)
+set $xrandr_output LVDS1
+
+# Screen Rotate
+bindsym Alt+Shift+$left exec swaymsg output eDP-1 transform 270
+bindsym Alt+Shift+$up exec swaymsg output eDP-1 transform 0
+bindsym Alt+Shift+$right exec swaymsg output eDP-1 transform 90
+bindsym Alt+Shift+$down exec swaymsg output eDP-1 transform 180

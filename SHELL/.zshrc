@@ -19,6 +19,8 @@ alias r='ranger .'
 #
 #Exports
 export MOZ_ENABLE_WAYLAND=1
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 
 
@@ -127,3 +129,4 @@ source $ZSH/oh-my-zsh.sh
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+. "/home/sameep/.deno/env"

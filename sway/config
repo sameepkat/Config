@@ -86,8 +86,12 @@ input "type:touchpad" {
     bindsym $mod+f exec firefox
     bindsym $mod+g exec one.ablaze.floorp
 
-# File browser
-    bindsym $mod+e exec $fileM
+    # File browser
+    bindsym $mod+e exec konsole -e ranger
+
+    # TMUX
+    bindsym Alt+Shift+t exec konsole -e tmux
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -255,7 +259,7 @@ bindsym Shift+Print exec wl-paste > ~/Pictures/Screenshots/screenshot_$(date+'%Y
 set $xrandr_output LVDS1
 
 # Screen Rotate
-bindsym Alt+Shift+$left exec swaymsg output eDP-1 transform 270
-bindsym Alt+Shift+$up exec swaymsg output eDP-1 transform 0
-bindsym Alt+Shift+$right exec swaymsg output eDP-1 transform 90
-bindsym Alt+Shift+$down exec swaymsg output eDP-1 transform 180
+bindsym Alt+Shift+Left exec swaymsg output eDP-1 transform 270
+bindsym Alt+Shift+Up exec swaymsg output eDP-1 transform 0
+bindsym Alt+Shift+Right exec swaymsg output eDP-1 transform 90
+bindsym Alt+Shift+Down exec swaymsg output eDP-1 transform 180

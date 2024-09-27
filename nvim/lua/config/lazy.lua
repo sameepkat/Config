@@ -18,14 +18,7 @@ require("lazy").setup({
   {
     "williamboman/mason.nvim",
   },
-  {
-    "nvim-java/jvim-java",
-  },
-  {
-    "wakatime/vim-wakatime",
-    lazy = false,
-  },
-  {
+  --[[{
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
@@ -34,14 +27,7 @@ require("lazy").setup({
         ensure_installed = "all", -- or specify languages you need
       })
     end,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
-  },
+  },]]
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },

@@ -12,12 +12,13 @@ return {
     end,
   },
   {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-      "hrsh7th/cmp-nvim-lsp",
-    },
+    "mattn/emmet-vim",
+    ft = { "html", "css", "javascriptreact", "typescriptreact" },
+    config = function()
+      vim.g.user_emmet_mode = "jsx"
+      vim.g.user_emmet_install_global = 0
+      vim.api.nvim_command("autocmd FileType javascriptreact EmmetInstall")
+      vim.api.nvim_command("autocmd FileType typescriptreact EmmetInstall")
+    end,
   },
 }

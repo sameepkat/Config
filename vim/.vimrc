@@ -7,7 +7,7 @@ filetype on
 " Enable plugins and load plugins for the detected file type
 filetype plugin on
 " Turn syntax highlighting on
-syntax on
+syntax enable
 " Set incremental search while typing
 set incsearch 
 " Ignore capital letters during search
@@ -70,4 +70,9 @@ set statusline+=\ row:\ %l\col:\ %c\ percent:\ %p%%
 "set the status on second to last line.
 set laststatus=2
 
-" ___________________________________________________________
+"Solarized
+if(has("termguicolors"))
+	set termguicolors
+endif
+set background=dark
+colorscheme solarized

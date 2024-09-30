@@ -12,6 +12,7 @@ alias htdocs='cd /opt/lampp/htdocs/'
 alias 3rd="cd ~/Documents/Obsidian\ Vault/3rd\ semester/"
 alias clones="cd ~/Documents/Code/clones/"
 alias r='ranger .'
+alias gv='gwenview'
 #startup
 #
 #

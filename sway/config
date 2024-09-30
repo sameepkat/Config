@@ -89,10 +89,12 @@ input "type:touchpad" {
 
     # File browser
     bindsym $mod+e exec konsole -e ranger
-    bindsym $mod+Ctrl+e exec konsole -e 'zsh && cd ~/Documents/Obsidian\ Vault/3rd\ semester/ && ranger'
 
     # TMUX
     bindsym Alt+Shift+t exec konsole -e tmux
+
+    # Emacs
+    bindsym $mod+m exec emacs
 
 
     # Drag floating windows by holding down $mod and left mouse button.

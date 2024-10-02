@@ -22,6 +22,7 @@
     "power-profiles-daemon",
     "cpu",
     "temperature",
+    "backlight",
     "battery",
     "battery#bat2",
     "clock",
@@ -76,6 +77,21 @@
   "cpu": {
     "format": "{usage}% ",
     "tooltip": false
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   "battery": {
     "states": {

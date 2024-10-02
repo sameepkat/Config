@@ -23,6 +23,9 @@ set $term konsole
 # on the original workspace that the command was run on.
 set $menu wofi 
 set $fileM ranger
+set $notification mako
+
+exec $notification
 
 
 ### Output configuration
@@ -96,6 +99,8 @@ input "type:touchpad" {
     # Emacs
     bindsym $mod+m exec emacs
 
+    # Librum
+    bindsym $mod+p exec 'flatpak run com.librumreader.librum'
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

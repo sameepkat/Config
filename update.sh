@@ -12,4 +12,7 @@ echo "Copying vim"
 cp -r ~/.vim/* ./vim/ --debug
 echo "Copying vimrc"
 cp ~/.vimrc ./vim/ --debug
+echo "Copying emacs"
+cp ~/.emacs.d/ ./ --debug
+mv ./.emacs.d emacs/
 echo "Copy Finished"

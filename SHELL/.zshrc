@@ -5,7 +5,6 @@
 alias v='nvim'
 alias :q='exit'
 alias random='cd ~/Documents/Code/random/'
-alias code='cd ~/Documents/Code/'
 alias projects='cd ~/Documents/Code/projects/'
 alias tmp='cd /tmp'
 alias htdocs='cd /opt/lampp/htdocs/'
@@ -14,6 +13,9 @@ alias clones="cd ~/Documents/Code/clones/"
 alias r='ranger .'
 alias gv='gwenview'
 alias py='python'
+alias nv='neovide'
+alias emacs='emacs -nw'
+alias cod='flatpak run com.vscodium.codium && exit'
 #startup
 #
 #
@@ -23,7 +25,7 @@ alias py='python'
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR="nvim"
 export VISUAL="nvim"
-
+export PATH="$HOME/.emacs.d/bin:$PATH"
 
 
 # Path to your Oh My Zsh installation.

@@ -20,7 +20,7 @@ exec $notification
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/Wallpaper.jpg fill
+output * bg ~/Pictures/Wallpapers/meadow1.jpg fill
 #
 exec swayidle -w \
           timeout 300 'swaylock -f -c 000000' \
@@ -28,7 +28,6 @@ exec swayidle -w \
           before-sleep 'swaylock -f -c 000000'
 #
 # Read `man 5 sway-input` for more information about this section.
-input "type:pointer" accel_profile flat
 input "type:touchpad" {
     tap enabled
     tap_button_map lrm
@@ -67,6 +66,19 @@ input "type:touchpad" {
 
 	 # neovide
 	 bindsym $mod+n exec 'neovide ~/Documents/Code'
+
+    #vscodium
+    bindsym $mod+c exec 'code'
+
+    #lutris
+    bindsym $mod+y exec 'lutris'
+
+    bindsym $mod+o exec 'flatpak run md.obsidian.Obsidian'
+
+    #night mode
+    bindsym $mod+Shift+n exec 'gammastep -l 27.7172:85.3240'
+    bindsym $mod+Ctrl+Shift+n exec 'killall gammastep'
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -237,3 +249,5 @@ bindsym Alt+Shift+Left exec swaymsg output eDP-1 transform 270
 bindsym Alt+Shift+Up exec swaymsg output eDP-1 transform 0
 bindsym Alt+Shift+Right exec swaymsg output eDP-1 transform 90
 bindsym Alt+Shift+Down exec swaymsg output eDP-1 transform 180
+
+

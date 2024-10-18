@@ -31,6 +31,9 @@ return{
 		'rafamadriz/friendly-snippets',
 		'hrsh7th/cmp-nvim-lsp',
 	},
+	sources = {
+			{name = 'buffer'},
+		},
 },
 {
 	'nvim-treesitter/nvim-treesitter',
@@ -63,4 +66,16 @@ return{
             })
         end
     },
+	{
+		'maxmellon/vim-jsx-pretty',
+    ft = { 'javascript.jsx', 'typescript.tsx' }
+  },
+  {
+		"othree/javascript-libraries-syntax.vim",
+    ft = 'javascript'
+  },
+  {
+    'pangloss/vim-javascript',
+    ft = 'javascript'
+  },
 }

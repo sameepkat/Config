@@ -1,0 +1,23 @@
+random
+random
+ls
+which $SHELL
+source ~/.zshrc 
+ls
+rm random.c\~
+ls
+la
+ls -la
+ls
+l
+cd ..
+ls
+cd Config/
+ls
+emacs update.sh
+mkdir Library/
+touch Library/app.js
+ls
+npx webpack
+npx webpack
+npx webpack | wl-copy 

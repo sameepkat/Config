@@ -1,16 +1,14 @@
 -- nvim/lua/options.lua
 --
---
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.opt.autoindent = true
-vim.o.clipboard = 'unnamedplus'
-vim.o.relativenumber = true
+vim.g.mapleader = " "
+vim.opt.clipboard = 'unnamedplus'
+--- Set local options (equivalent to setl in Vimscript)
+vim.opt.relativenumber = true
 
-vim.o.tabstop = 3
-vim.o.shiftwidth = 3
-vim.o.updatetime = 300
+-- Setting buffer-specific variables
+vim.b.vcm_tab_complete = 'javascript'  -- Equivalent to 'let b:vcm_tab_complete = "javascript"'
+vim.b.javascript_fold = 1              -- Equivalent to 'let b:javascript_fold = 1'
 
-vim.o.termguicolors = true
-
-vim.o.mouse = 'a'
+-- Setting global variables
+vim.g.javascript_plugin_jsdoc = 1      -- Equivalent to 'let g:javascript_plugin_jsdoc = 1'
+vim.g.jsx_ext_required = 0             -- Equivalent to 'let g:jsx_ext_required = 0'

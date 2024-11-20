@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Restaurant Page</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+	<button id="home">Home</button>
+	<button id="menu">Menu</button>
+	<button id="about">About us</button>
+      </nav>
+      <div id="content">
+	  <div id="container">
+	      <h2>MoMo</h2>
+	    <img src="../asset/momo.jpg" alt="Image of Momo"/>
+	    <p>Welcome to our restaurant! Enjoy our delicious Momos, made with fresh ingredients</p>
+	  </div> 
+      </div>
+  </body>
+</html>

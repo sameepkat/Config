@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Restaurant Page</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+	<button id="home">Home</button>
+	<button id="contant">Contact</button>
+	<button id="about">About us</button>
+  </body>
+</html>

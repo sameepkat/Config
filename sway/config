@@ -6,7 +6,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term konsole
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -20,7 +20,7 @@ exec $notification
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/meadow1.jpg fill
+output * bg ~/Pictures/Wallpapers/Waves\ Light\ 6016x6016.jpg fill
 #
 exec swayidle -w \
           timeout 300 'swaylock -f -c 000000' \
@@ -46,7 +46,7 @@ input "type:touchpad" {
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu --show run
+    bindsym $mod+d exec $menu --show drun
 
     #browser
     bindsym $mod+f exec firefox

@@ -16,6 +16,7 @@ alias py='python'
 alias nv='neovide'
 alias emacs='emacs -nw'
 alias cod='flatpak run com.vscodium.codium && exit'
+alias misc='cd ~/Documents/Misc/'
 #startup
 #
 #
@@ -134,3 +135,8 @@ source $ZSH/oh-my-zsh.sh
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 . "/home/sameep/.deno/env"
+eval "$(zoxide init zsh)"
+
+
+#Nvim as the Manpager
+export MANPAGER='nvim +Man!'

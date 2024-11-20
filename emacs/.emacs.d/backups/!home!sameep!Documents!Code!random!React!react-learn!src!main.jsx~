@@ -1,0 +1,24 @@
+
+function myButton() {
+    return (
+      <>
+	<div>
+          Hello WOrld
+        </div>
+        <div>
+        This is also a div
+</div>
+	</>
+	
+  );
+}
+
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Welcome to my app</h1>
+      <myButton />
+    </div >
+  );
+}
+

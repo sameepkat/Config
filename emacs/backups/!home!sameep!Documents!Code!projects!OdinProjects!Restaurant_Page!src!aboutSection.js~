@@ -1,0 +1,5 @@
+
+const aboutSection = () => {
+    content.innerHTML = "This is about";
+}
+

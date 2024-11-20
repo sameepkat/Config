@@ -1,4 +1,4 @@
-
+;;;package-summary
 ;; Disable toolbars and menus
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -47,7 +47,9 @@
 (use-package projectile
   :config
   (projectile-mode +1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  :bind
+  (("C-c f" . projectile-find-file))
+  )
 
 (use-package company
   :ensure t
@@ -97,7 +99,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(lsp-ui lsp-mode rjsx-mode projectile js2-mode flycheck doom-modeline counsel company)))
+   '(evil lsp-ui lsp-mode rjsx-mode projectile js2-mode flycheck doom-modeline counsel company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -105,7 +107,43 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Set the backup directory to the .emacs.d folder
-(setq backup-directory-alist `(("." . ,(expand-file-name ".emacs.d/backups/" user-emacs-directory))))
-"(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name ".emacs.d/auto-save/" user-emacs-directory) t)))
+;; Set the backup directory to the .emacs.d/backups/ folder
+(setq backup-directory-alist `(("." . ,(expand-file-name "backups/" user-emacs-directory))))
+
+;; Set the auto-save directory to the .emacs.d/auto-save/ folder
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "auto-save/" user-emacs-directory) t)))
+
+;; Create the directories if they don't exist
+(make-directory (expand-file-name "backups/" user-emacs-directory) t)
+(make-directory (expand-file-name "auto-save/" user-emacs-directory) t)
+
+(require 'evil)
+(evil-mode 1)
+(setq evil-want-integration t)
+(setq evil-collection-setup-minibuffer t)
+(use-package evil-escape
+  :ensure t
+  :init
+  (setq evil-escape-key-sequence "jj")
+  (setq evil-escape-delay 0.2)
+  :config
+  (evil-escape-mode 1))
+
+
+
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; For HTML
+(add-hook 'css-mode-hook 'emmet-mode) ;; For CSS
+
+;; Optional: Set the trigger key (default is C-j
+(setq emmet-expand-jsx-className? t)
+
+(use-package web-mode
+  :ensure t
+  :mode ("\\.html?\\'" "\\.css\\'" "\\.js\\'")
+  :config
+  (setq web-mode-enable-auto-pairing t)
+  (setq web-mode-enable-auto-closing t)
+  (setq web-mode-enable-auto-quoting t))
+
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))

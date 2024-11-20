@@ -1,0 +1,28 @@
+import React, { useEffect, useState } from 'react';
+
+function ExampleComponent() {
+  const [data, setData] = useState(null);
+
+  // This useEffect runs only when the component mounts (once)
+  useEffect(() => {
+    // Simulate a data fetch when the component mounts
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then((response) => response.json())
+      .then((json) => setData(json));
+
+    // Optional: Cleanup code can be returned from useEffect if needed
+    return () => {
+      console.log('Component unmounted or cleanup on unmount');
+    };
+  }, []); // The empty dependency array ensures this runs only on mount
+
+  return (
+    <div>
+      <h1>Data from API:</h1>
+      {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>}
+    </div>
+  );
+}
+
+export default ExampleComponent;
+

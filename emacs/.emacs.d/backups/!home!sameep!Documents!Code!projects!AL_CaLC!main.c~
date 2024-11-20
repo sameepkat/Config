@@ -1,0 +1,44 @@
+#include <raylib.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#define BACKGROUND_COLOR BLACK
+#define DISPLAY_OUTLINE_COLOR WHITE
+
+#define NO_OF_KEYS 10
+
+int main(int argc, char *argv[])
+{
+  const int screenWidth = 400;
+  const int screenHeight = 650;
+
+  InitWindow(screenWidth, screenHeight, "ray_Calc");
+    Rectangle key[NO_OF_KEYS] = {0};
+  float keyWidth = (screenWidth - 50) / NO_OF_KEYS;
+  float keyHeight = 60;
+  float spacing = 10.00;
+    for (int i = 0;i < NO_OF_KEYS;i++) {
+      key[i].x = 25 + i * (keyWidth+spacing);
+      key[i].y = screenHeight - keyHeight - 25;
+      key[i].width = keyWidth ;
+      key[i].height = keyHeight;
+  SetTargetFPS(60);
+  while(!WindowShouldClose())
+  {
+    BeginDrawing();
+      ClearBackground(GRAY);
+      DrawText("Calculator", screenWidth/2-50, 20, 20, BACKGROUND_COLOR);
+      DrawLine(0, 50, screenWidth, 50, DISPLAY_OUTLINE_COLOR);
+      DrawRectangleLines(0, 60, screenWidth, 60, DISPLAY_OUTLINE_COLOR);
+      DrawLine(0, 140, screenWidth, 140, DISPLAY_OUTLINE_COLOR);
+      for(int i = 0 ;i < NO_OF_KEYS; i++)
+      {
+        DrawRectangleRec(key[i], RED);
+        DrawText(TextFormat("%d", i), key[i].x + keyWidth/4, key[i].y + keyHeight/4, 20, BACKGROUND_COLOR);
+      }
+    EndDrawing();
+    }
+  }
+  CloseWindow();
+  return EXIT_SUCCESS ;
+}

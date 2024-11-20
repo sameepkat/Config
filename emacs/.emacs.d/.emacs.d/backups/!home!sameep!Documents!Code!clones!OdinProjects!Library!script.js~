@@ -1,0 +1,12 @@
+const myLibrary = [];
+function myBook(Title, Author) {
+  this.title = Title
+  this.author = Author
+}
+
+function addBookToLibrary() {
+
+}
+
+const abc = new myBook("1984", "George Orwell")
+console.log(abc.title, abc.author)

@@ -23,9 +23,10 @@ exec $notification
 output * bg ~/Pictures/Wallpapers/Waves\ Light\ 6016x6016.jpg fill
 #
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep 'swaylock -f -c 000000'
+    timeout 300 '~/.config/sway/scripts/conditional_lock.sh' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
+
 #
 # Read `man 5 sway-input` for more information about this section.
 input "type:touchpad" {
@@ -238,7 +239,7 @@ bindsym $mod+Ctrl+l exec systemctl suspend
 
 # Screenshots
 bindsym Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
-bindsym Shift+Print exec wl-paste > ~/Pictures/Screenshots/screenshot_$(date+'%Y-%m-%d_%H-%M-%s').png
+bindsym Shift+Print exec wl-paste > ~/Pictures/Screenshots/screenshot_$(date +'%s').png
 
 
 #For Intel/AMD GPus (Mesa)

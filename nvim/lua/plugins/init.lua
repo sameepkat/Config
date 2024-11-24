@@ -98,4 +98,7 @@ return {
 			)
 		end
 	},
+	{
+		'wakatime/vim-wakatime', lazy = false
+	}
 }

@@ -9,5 +9,6 @@
   "nvim-jdtls": { "branch": "master", "commit": "e129398e171e87c0d9e94dd5bea7eb4730473ffc" },
   "nvim-lspconfig": { "branch": "master", "commit": "291a8f1a319dc712db85bcc174b0cf406f0a5b69" },
   "nvim-treesitter": { "branch": "master", "commit": "a3a732107f8b529f97bf4921b3e1af5dcc756bb6" },
-  "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" }
+  "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
+  "vim-wakatime": { "branch": "master", "commit": "cf51327a9e08935569614d1cb24e779ee9f45519" }
 }

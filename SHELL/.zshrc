@@ -17,9 +17,8 @@ alias nv='neovide'
 alias emacs='emacs -nw'
 alias cod='flatpak run com.vscodium.codium && exit'
 alias misc='cd ~/Documents/Misc/'
+alias fz='fzf --preview "cat {}" --bind "enter:execute(xdg-open {})"'
 #startup
-#
-#
 #
 #
 #Exports
@@ -140,3 +139,6 @@ eval "$(zoxide init zsh)"
 
 #Nvim as the Manpager
 export MANPAGER='nvim +Man!'
+
+#fzf ignore hidden files
+export FZF_DEFAULT_COMMAND='find . -type f ! -path "*/.*"'

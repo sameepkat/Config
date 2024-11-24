@@ -1,5 +1,5 @@
-gaps inner 4px
-gaps outer 2px
+gaps inner 0px
+gaps outer 0px
 set $mod Mod4
 set $left h
 set $down j
@@ -20,7 +20,7 @@ exec $notification
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/Waves\ Light\ 6016x6016.jpg fill
+#output * bg ~/Pictures/Wallpapers/Waves\ Light\ 6016x6016.jpg fill
 #
 exec swayidle -w \
     timeout 300 '~/.config/sway/scripts/conditional_lock.sh' \
@@ -57,7 +57,7 @@ input "type:touchpad" {
     bindsym $mod+e exec konsole -e ranger
 
     # TMUX
-    bindsym Alt+Shift+t exec konsole -e tmux
+    bindsym Alt+Shift+t exec alacritty -e tmux
 
     # Emacs
     bindsym $mod+m exec emacs

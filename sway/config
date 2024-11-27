@@ -54,7 +54,7 @@ input "type:touchpad" {
     bindsym $mod+g exec one.ablaze.floorp
 
     # File browser
-    bindsym $mod+e exec konsole -e ranger
+    bindsym $mod+e exec alacritty -e ranger
 
     # TMUX
     bindsym Alt+Shift+t exec alacritty -e tmux

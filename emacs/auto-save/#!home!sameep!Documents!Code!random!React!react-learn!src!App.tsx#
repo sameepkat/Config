@@ -1,6 +1,0 @@
-const str: string = "Hello, this is a string";
-
-export default()=>{
-    const root = document.querySelector("#root");
-    root.textContent = "Hola";
-}

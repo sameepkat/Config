@@ -1,1 +1,0 @@
-("~/Documents/Code/projects/OdinProjects/" "~/Documents/Code/projects/AL_CaLC/" "~/Documents/Code/projects/AL_CaLC/build/" "~/Documents/Code/random/React/react-learn/" "~/Documents/Code/DSA/")

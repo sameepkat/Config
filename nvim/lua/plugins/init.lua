@@ -19,6 +19,7 @@ return {
 					"css",
 					"json",
 					"html",
+					"dart",
 				},
 				highlight = {
 					enable = true,
@@ -76,32 +77,107 @@ return {
 			-- Set pumblend for transparency
 			vim.opt.pumblend = 10
 
-			-- Use arrow keys for navigating completion
-			vim.keymap.set('i', '<Down>', function()
-				return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#next'](1) or '<Down>'
-			end, { expr = true })
-			
-			vim.keymap.set('i', '<Up>', function()
-				return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#prev'](1) or '<Up>'
-			end, { expr = true })
+			-- Use Tab to trigger completion
+			function _G.check_back_space()
+				local col = vim.fn.col('.') - 1
+				return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+			end
 
-			-- Use Enter to confirm completion
-			vim.keymap.set('i', '<CR>', function()
+			vim.keymap.set("i", "<TAB>", function()
+				if vim.fn['coc#pum#visible']() == 1 then
+					return vim.fn['coc#pum#next'](1)
+				elseif _G.check_back_space() then
+					return vim.fn['nvim_replace_termcodes']("<TAB>", true, true, true)
+				else
+					return vim.fn['coc#refresh']()
+				end
+			end, {silent = true, noremap = true, expr = true})
+
+			-- Navigation in completion menu
+			vim.keymap.set("i", "<C-j>", function()
+				return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#next'](1) or "<C-j>"
+			end, {expr = true})
+			
+			vim.keymap.set("i", "<C-k>", function()
+				return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#prev'](1) or "<C-k>"
+			end, {expr = true})
+
+			-- Use <cr> or <C-l> to confirm completion
+			vim.keymap.set("i", "<C-l>", function()
+				return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#confirm']() or "<C-l>"
+			end, {expr = true})
+
+			vim.keymap.set('i', '<cr>', function()
 				return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#confirm']() or '<CR>'
 			end, { expr = true })
-
-			-- Use K to show documentation in preview window
-			function _G.show_docs()
-				local cw = vim.fn.expand('<cword>')
-				if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
-					vim.api.nvim_command('h ' .. cw)
-				elseif vim.api.nvim_eval('coc#rpc#ready()') then
-					vim.fn.CocActionAsync('doHover')
-				else
-					vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-				end
-			end
-			vim.keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
 		end
+	},
+	{
+		"akinsho/flutter-tools.nvim",
+		lazy = false,
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'stevearc/dressing.nvim',
+		},
+		config = function()
+			require("flutter-tools").setup({
+				ui = {
+					border = "rounded",
+					notification_style = 'native'
+				},
+				decorations = {
+					statusline = {
+						app_version = true,
+						device = true,
+					}
+				},
+				widget_guides = {
+					enabled = true,
+				},
+				closing_tags = {
+					highlight = "ErrorMsg",
+					prefix = "//",
+					enabled = true
+				},
+				lsp = {
+					color = {
+						enabled = true,
+						background = true,
+					},
+					settings = {
+						showTodos = true,
+						completeFunctionCalls = true,
+					}
+				}
+			})
+		end
+	},
+	{
+		'rose-pine/neovim',
+		name = 'rose-pine',
+		config = function()
+			require('rose-pine').setup({
+				variant = 'moon',  -- moon, dawn, or main
+				dark_variant = 'moon',
+				disable_background = false,
+				disable_float_background = false,
+			})
+			vim.cmd('colorscheme rose-pine')
+		end
+	},
+	{
+		'numToStr/Comment.nvim',
+		opts = {
+			-- add any custom configurations here
+			toggler = {
+				line = '<leader>cc', -- Line-comment toggle keymap
+				block = '<leader>bc', -- Block-comment toggle keymap
+			},
+			opleader = {
+				line = '<leader>c', -- Line-comment keymap
+				block = '<leader>b', -- Block-comment keymap
+			},
+		},
+		lazy = false,
 	}
 }

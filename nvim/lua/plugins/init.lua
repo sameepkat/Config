@@ -83,13 +83,25 @@ return {
 				return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 			end
 
+			-- Use Tab for trigger completion and navigate snippet
 			vim.keymap.set("i", "<TAB>", function()
 				if vim.fn['coc#pum#visible']() == 1 then
 					return vim.fn['coc#pum#next'](1)
+				elseif vim.fn['coc#jumpable']() == 1 then
+					return vim.fn['coc#rpc#request']('snippetNext', {})
 				elseif _G.check_back_space() then
 					return vim.fn['nvim_replace_termcodes']("<TAB>", true, true, true)
 				else
 					return vim.fn['coc#refresh']()
+				end
+			end, {silent = true, noremap = true, expr = true})
+
+			-- Use Shift-Tab to navigate backwards in snippet
+			vim.keymap.set("i", "<S-TAB>", function()
+				if vim.fn['coc#jumpable']() == 1 then
+					return vim.fn['coc#rpc#request']('snippetPrev', {})
+				else
+					return vim.fn['nvim_replace_termcodes']("<S-TAB>", true, true, true)
 				end
 			end, {silent = true, noremap = true, expr = true})
 
@@ -105,6 +117,10 @@ return {
 			-- Use <cr> or <C-l> to confirm completion
 			vim.keymap.set("i", "<C-l>", function()
 				return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#confirm']() or "<C-l>"
+			end, {expr = true})
+
+			vim.keymap.set("i", "l", function()
+				return vim.fn['coc#pum#visible']() == 1 and vim.fn['coc#pum#confirm']() or "l"
 			end, {expr = true})
 
 			vim.keymap.set('i', '<cr>', function()
